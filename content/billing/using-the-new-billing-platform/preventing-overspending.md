@@ -18,13 +18,16 @@ Budgets and alerts allow you to track spending for your {% ifversion fpt %}organ
 
 The budget only applies to expenses incurred from the date of its creation onwards. Any expenses incurred prior to the creation of the budget will not be included in the calculations
 
-Budgets are not applicable to:
+{% ifversion ghec %}
+Budgets are not applicable to pre-paid volume licenses.
+{% endif %}
 
-* {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
-* Pre-paid volume licenses{% endif %}.
+For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
+
+For the {% data variables.product.prodname_copilot %} Premium Request SKU, to set a spending limit for premium requests over your plan's allowance, you can update the default $0 SKU-level budget and select “Stop usage when budget limit is reached”.
 
 > [!NOTE]
-> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file.  
 
 {% ifversion fpt %}
 
@@ -43,6 +46,21 @@ You can set spending limits and receive alerts when your usage reaches 75%, 90%,
 ## Managing budgets for your {% data variables.enterprise.enterprise_or_org %}
 
 You can manage budgets for your {% data variables.enterprise.enterprise_or_org %} by setting a budget, viewing budgets, and editing or deleting budgets.
+
+{% ifversion ghec %}
+
+### Budget scopes
+
+You can create a budget for a given {% data variables.product.github %} product and specific scope:
+
+* `Enterprise` scoped budgets track spending for all organizations, repositories, and cost centers in the enterprise
+* `Organization` scoped budgets track spending for a single organization, repositories, and cost centers in the organization
+* `Repository` scoped budgets track spending for a single repository
+* `Cost center` scoped budgets track spending for a single cost center
+
+Usage is applied towards all applicable budgets. If any applicable budget with "Stop usage when budget limit is reached" enabled becomes exhausted, additional usage will be stopped.
+
+{% endif %}
 
 ### Viewing budgets
 
@@ -84,13 +102,10 @@ As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %
 
 {% endif %}
 
-1. Click **Budgets and alerts**.
-1. Click **New budget**.
-1. Under "Products", select the metered product to include in this budget.
-1. Under "Budget scope", set the scope of spending for this budget.
+{% data reusables.billing.create-product-or-sku-budget %}
 1. Under "Budget", set a budget amount.
 
-   To stop any usage and further spending once your {% ifversion fpt %}organization{% elsif ghec %}enterprise or organization{% endif %} reaches the budget limit, select **Stop usage when budget limit is reached**. This does not apply to {% data variables.product.prodname_copilot %} usage.
+   To stop any usage and further spending once your {% ifversion fpt %}organization{% elsif ghec %}enterprise or organization{% endif %} reaches the budget limit, select **Stop usage when budget limit is reached**, if available.
 
    >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 

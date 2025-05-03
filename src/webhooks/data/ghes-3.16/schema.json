@@ -1154,7 +1154,7 @@
   "bypass_request_push_ruleset": {
     "cancelled": {
       "descriptionHtml": "<p>A push ruleset bypass request was cancelled.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>\n<p>Note: Delegated bypass for push rules is currently in public preview and subject to change.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -1234,7 +1234,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -1266,55 +1267,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -1394,7 +1347,7 @@
     },
     "completed": {
       "descriptionHtml": "<p>A push ruleset bypass request was completed.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>\n<p>Note: Delegated bypass for push rules is currently in public preview and subject to change.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -1474,7 +1427,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -1506,55 +1460,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -1634,7 +1540,7 @@
     },
     "created": {
       "descriptionHtml": "<p>A push ruleset bypass request was created.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>\n<p>Note: Delegated bypass for push rules is currently in public preview and subject to change.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -1714,7 +1620,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -1746,55 +1653,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -1874,7 +1733,7 @@
     },
     "response_dismissed": {
       "descriptionHtml": "<p>A push ruleset bypass response was dismissed.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>\n<p>Note: Delegated bypass for push rules is currently in public preview and subject to change.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -1954,7 +1813,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -1986,55 +1846,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -2158,7 +1970,7 @@
     },
     "response_submitted": {
       "descriptionHtml": "<p>A response either approving or rejecting the push ruleset bypass request was submitted.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>\n<p>Note: Delegated bypass for push rules is currently in public preview and subject to change.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity related to a user's request to bypass a set of push rules.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#managing-requests-to-bypass-push-rules\">Managing requests to bypass push rulesets</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -2238,7 +2050,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -2270,55 +2083,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -2524,7 +2289,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -2556,55 +2322,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -2764,7 +2482,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -2796,55 +2515,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -3004,7 +2675,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -3036,55 +2708,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -3244,7 +2868,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -3276,55 +2901,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -3528,7 +3105,8 @@
               "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
               ]
             },
             {
@@ -3560,55 +3138,7 @@
             {
               "type": "object or null",
               "name": "metadata",
-              "description": "<p>Metadata about the exemption request.</p>",
-              "childParamsGroups": [
-                {
-                  "type": "object",
-                  "name": "Secret Scanning Push Protection Exemption Request Metadata",
-                  "description": "<p>Metadata for a secret scanning push protection exemption request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "label",
-                      "description": "<p>The label for the secret type</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the exemption request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "Secret scanning alert dismissal request metadata",
-                  "description": "<p>Metadata for a secret scanning alert dismissal request.</p>",
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "alert_title",
-                      "description": "<p>The title of the secret alert</p>"
-                    },
-                    {
-                      "type": "string",
-                      "name": "reason",
-                      "description": "<p>The reason for the dismissal request</p>",
-                      "enum": [
-                        "fixed_later",
-                        "false_positive",
-                        "tests",
-                        "revoked"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "oneOfObject": true
+              "description": "<p>Metadata about the exemption request.</p>"
             },
             {
               "type": "string",
@@ -52727,6 +52257,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -54009,6 +53601,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -55315,6 +54969,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -56834,6 +56550,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -57551,6 +57329,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -58940,6 +58780,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -60278,6 +60180,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -61927,6 +61891,68 @@
               "description": ""
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "title",
               "description": "<p>Title of the issue</p>",
@@ -63367,6 +63393,68 @@
               "description": ""
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "title",
               "description": "<p>Title of the issue</p>",
@@ -64764,6 +64852,68 @@
               "description": ""
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "title",
               "description": "<p>Title of the issue</p>",
@@ -66107,6 +66257,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -69796,6 +70008,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -71180,6 +71454,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -72659,6 +72995,68 @@
                   "description": ""
                 }
               ]
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             }
           ]
         },
@@ -73900,6 +74298,68 @@
                   "name": "title",
                   "description": "<p>Title of the issue</p>",
                   "isRequired": true
+                },
+                {
+                  "type": "object or null",
+                  "name": "type",
+                  "description": "<p>The type of issue.</p>",
+                  "childParamsGroups": [
+                    {
+                      "type": "integer",
+                      "name": "id",
+                      "description": "<p>The unique identifier of the issue type.</p>",
+                      "isRequired": true
+                    },
+                    {
+                      "type": "string",
+                      "name": "node_id",
+                      "description": "<p>The node identifier of the issue type.</p>",
+                      "isRequired": true
+                    },
+                    {
+                      "type": "string",
+                      "name": "name",
+                      "description": "<p>The name of the issue type.</p>",
+                      "isRequired": true
+                    },
+                    {
+                      "type": "string or null",
+                      "name": "description",
+                      "description": "<p>The description of the issue type.</p>",
+                      "isRequired": true
+                    },
+                    {
+                      "type": "string or null",
+                      "name": "color",
+                      "description": "<p>The color of the issue type.</p>",
+                      "enum": [
+                        "gray",
+                        "blue",
+                        "green",
+                        "yellow",
+                        "orange",
+                        "red",
+                        "pink",
+                        "purple",
+                        null
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "created_at",
+                      "description": "<p>The time the issue type created.</p>"
+                    },
+                    {
+                      "type": "string",
+                      "name": "updated_at",
+                      "description": "<p>The time the issue type last updated.</p>"
+                    },
+                    {
+                      "type": "boolean",
+                      "name": "is_enabled",
+                      "description": "<p>The enabled state of the issue type.</p>"
+                    }
+                  ]
                 },
                 {
                   "type": "string",
@@ -75983,6 +76443,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -77498,6 +78020,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -78886,6 +79470,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -80285,6 +80931,68 @@
               "isRequired": true
             },
             {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
+            },
+            {
               "type": "string",
               "name": "updated_at",
               "description": "",
@@ -81669,6 +82377,68 @@
               "name": "title",
               "description": "<p>Title of the issue</p>",
               "isRequired": true
+            },
+            {
+              "type": "object or null",
+              "name": "type",
+              "description": "<p>The type of issue.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "integer",
+                  "name": "id",
+                  "description": "<p>The unique identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "node_id",
+                  "description": "<p>The node identifier of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "description",
+                  "description": "<p>The description of the issue type.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "color",
+                  "description": "<p>The color of the issue type.</p>",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "created_at",
+                  "description": "<p>The time the issue type created.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "updated_at",
+                  "description": "<p>The time the issue type last updated.</p>"
+                },
+                {
+                  "type": "boolean",
+                  "name": "is_enabled",
+                  "description": "<p>The enabled state of the issue type.</p>"
+                }
+              ]
             },
             {
               "type": "string",
@@ -88788,7 +89558,7 @@
   "personal_access_token_request": {
     "approved": {
       "descriptionHtml": "<p>A fine-grained personal access token request was approved.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nFine-grained PATs are in public preview. Related APIs, events, and functionality are subject to change.</p>\n</div>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -89145,14 +89915,15 @@
         }
       ],
       "availability": [
-        "app"
+        "app",
+        "organization"
       ],
       "action": "approved",
       "category": "personal_access_token_request"
     },
     "cancelled": {
       "descriptionHtml": "<p>A fine-grained personal access token request was cancelled by the requester.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nFine-grained PATs are in public preview. Related APIs, events, and functionality are subject to change.</p>\n</div>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -89509,14 +90280,15 @@
         }
       ],
       "availability": [
-        "app"
+        "app",
+        "organization"
       ],
       "action": "cancelled",
       "category": "personal_access_token_request"
     },
     "created": {
       "descriptionHtml": "<p>A fine-grained personal access token request was created.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nFine-grained PATs are in public preview. Related APIs, events, and functionality are subject to change.</p>\n</div>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -89872,14 +90644,15 @@
         }
       ],
       "availability": [
-        "app"
+        "app",
+        "organization"
       ],
       "action": "created",
       "category": "personal_access_token_request"
     },
     "denied": {
       "descriptionHtml": "<p>A fine-grained personal access token request was denied.</p>",
-      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nFine-grained PATs are in public preview. Related APIs, events, and functionality are subject to change.</p>\n</div>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a request for a fine-grained personal access token to access resources that belong to a resource owner that requires approval for token access. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token\">Creating a personal access token</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Personal access token requests\" organization permission.</p>",
       "bodyParameters": [
         {
           "type": "string",
@@ -90236,7 +91009,8 @@
         }
       ],
       "availability": [
-        "app"
+        "app",
+        "organization"
       ],
       "action": "denied",
       "category": "personal_access_token_request"
@@ -198053,9 +198827,9 @@
                       "description": "",
                       "childParamsGroups": [
                         {
-                          "type": "array of strings",
-                          "name": "allowed_merge_methods",
-                          "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                          "type": "boolean",
+                          "name": "automatic_copilot_code_review_enabled",
+                          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                         },
                         {
                           "type": "boolean",
@@ -198430,134 +199204,6 @@
                           "type": "string",
                           "name": "pattern",
                           "description": "<p>The pattern to match with.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_path_restriction",
-                  "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_path_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_paths",
-                          "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_path_length",
-                  "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_path_length"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_path_length",
-                          "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_extension_restriction",
-                  "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_extension_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_extensions",
-                          "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_size",
-                  "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_size"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_size",
-                          "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                           "isRequired": true
                         }
                       ]
@@ -199152,9 +199798,9 @@
                       "description": "",
                       "childParamsGroups": [
                         {
-                          "type": "array of strings",
-                          "name": "allowed_merge_methods",
-                          "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                          "type": "boolean",
+                          "name": "automatic_copilot_code_review_enabled",
+                          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                         },
                         {
                           "type": "boolean",
@@ -199529,134 +200175,6 @@
                           "type": "string",
                           "name": "pattern",
                           "description": "<p>The pattern to match with.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_path_restriction",
-                  "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_path_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_paths",
-                          "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_path_length",
-                  "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_path_length"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_path_length",
-                          "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_extension_restriction",
-                  "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_extension_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_extensions",
-                          "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_size",
-                  "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_size"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_size",
-                          "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                           "isRequired": true
                         }
                       ]
@@ -200251,9 +200769,9 @@
                       "description": "",
                       "childParamsGroups": [
                         {
-                          "type": "array of strings",
-                          "name": "allowed_merge_methods",
-                          "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                          "type": "boolean",
+                          "name": "automatic_copilot_code_review_enabled",
+                          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                         },
                         {
                           "type": "boolean",
@@ -200628,134 +201146,6 @@
                           "type": "string",
                           "name": "pattern",
                           "description": "<p>The pattern to match with.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_path_restriction",
-                  "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_path_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_paths",
-                          "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_path_length",
-                  "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_path_length"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_path_length",
-                          "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "file_extension_restriction",
-                  "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "file_extension_restriction"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "array of strings",
-                          "name": "restricted_file_extensions",
-                          "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                          "isRequired": true
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "name": "max_file_size",
-                  "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                  "isRequired": [
-                    "type"
-                  ],
-                  "childParamsGroups": [
-                    {
-                      "type": "string",
-                      "name": "type",
-                      "description": "",
-                      "isRequired": true,
-                      "enum": [
-                        "max_file_size"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "parameters",
-                      "description": "",
-                      "childParamsGroups": [
-                        {
-                          "type": "integer",
-                          "name": "max_file_size",
-                          "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                           "isRequired": true
                         }
                       ]
@@ -201324,9 +201714,9 @@
                           "description": "",
                           "childParamsGroups": [
                             {
-                              "type": "array of strings",
-                              "name": "allowed_merge_methods",
-                              "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                              "type": "boolean",
+                              "name": "automatic_copilot_code_review_enabled",
+                              "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                             },
                             {
                               "type": "boolean",
@@ -201701,134 +202091,6 @@
                               "type": "string",
                               "name": "pattern",
                               "description": "<p>The pattern to match with.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "file_path_restriction",
-                      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "file_path_restriction"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "array of strings",
-                              "name": "restricted_file_paths",
-                              "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "max_file_path_length",
-                      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "max_file_path_length"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "integer",
-                              "name": "max_file_path_length",
-                              "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "file_extension_restriction",
-                      "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "file_extension_restriction"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "array of strings",
-                              "name": "restricted_file_extensions",
-                              "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "max_file_size",
-                      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "max_file_size"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "integer",
-                              "name": "max_file_size",
-                              "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                               "isRequired": true
                             }
                           ]
@@ -202209,9 +202471,9 @@
                           "description": "",
                           "childParamsGroups": [
                             {
-                              "type": "array of strings",
-                              "name": "allowed_merge_methods",
-                              "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                              "type": "boolean",
+                              "name": "automatic_copilot_code_review_enabled",
+                              "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                             },
                             {
                               "type": "boolean",
@@ -202586,134 +202848,6 @@
                               "type": "string",
                               "name": "pattern",
                               "description": "<p>The pattern to match with.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "file_path_restriction",
-                      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "file_path_restriction"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "array of strings",
-                              "name": "restricted_file_paths",
-                              "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "max_file_path_length",
-                      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "max_file_path_length"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "integer",
-                              "name": "max_file_path_length",
-                              "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "file_extension_restriction",
-                      "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "file_extension_restriction"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "array of strings",
-                              "name": "restricted_file_extensions",
-                              "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                              "isRequired": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "name": "max_file_size",
-                      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                      "isRequired": [
-                        "type"
-                      ],
-                      "childParamsGroups": [
-                        {
-                          "type": "string",
-                          "name": "type",
-                          "description": "",
-                          "isRequired": true,
-                          "enum": [
-                            "max_file_size"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "parameters",
-                          "description": "",
-                          "childParamsGroups": [
-                            {
-                              "type": "integer",
-                              "name": "max_file_size",
-                              "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                               "isRequired": true
                             }
                           ]
@@ -203099,9 +203233,9 @@
                               "description": "",
                               "childParamsGroups": [
                                 {
-                                  "type": "array of strings",
-                                  "name": "allowed_merge_methods",
-                                  "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>"
+                                  "type": "boolean",
+                                  "name": "automatic_copilot_code_review_enabled",
+                                  "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>"
                                 },
                                 {
                                   "type": "boolean",
@@ -203476,134 +203610,6 @@
                                   "type": "string",
                                   "name": "pattern",
                                   "description": "<p>The pattern to match with.</p>",
-                                  "isRequired": true
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "file_path_restriction",
-                          "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
-                          "isRequired": [
-                            "type"
-                          ],
-                          "childParamsGroups": [
-                            {
-                              "type": "string",
-                              "name": "type",
-                              "description": "",
-                              "isRequired": true,
-                              "enum": [
-                                "file_path_restriction"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "name": "parameters",
-                              "description": "",
-                              "childParamsGroups": [
-                                {
-                                  "type": "array of strings",
-                                  "name": "restricted_file_paths",
-                                  "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
-                                  "isRequired": true
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "max_file_path_length",
-                          "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
-                          "isRequired": [
-                            "type"
-                          ],
-                          "childParamsGroups": [
-                            {
-                              "type": "string",
-                              "name": "type",
-                              "description": "",
-                              "isRequired": true,
-                              "enum": [
-                                "max_file_path_length"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "name": "parameters",
-                              "description": "",
-                              "childParamsGroups": [
-                                {
-                                  "type": "integer",
-                                  "name": "max_file_path_length",
-                                  "description": "<p>The maximum amount of characters allowed in file paths</p>",
-                                  "isRequired": true
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "file_extension_restriction",
-                          "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
-                          "isRequired": [
-                            "type"
-                          ],
-                          "childParamsGroups": [
-                            {
-                              "type": "string",
-                              "name": "type",
-                              "description": "",
-                              "isRequired": true,
-                              "enum": [
-                                "file_extension_restriction"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "name": "parameters",
-                              "description": "",
-                              "childParamsGroups": [
-                                {
-                                  "type": "array of strings",
-                                  "name": "restricted_file_extensions",
-                                  "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
-                                  "isRequired": true
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "name": "max_file_size",
-                          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
-                          "isRequired": [
-                            "type"
-                          ],
-                          "childParamsGroups": [
-                            {
-                              "type": "string",
-                              "name": "type",
-                              "description": "",
-                              "isRequired": true,
-                              "enum": [
-                                "max_file_size"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "name": "parameters",
-                              "description": "",
-                              "childParamsGroups": [
-                                {
-                                  "type": "integer",
-                                  "name": "max_file_size",
-                                  "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
                                   "isRequired": true
                                 }
                               ]

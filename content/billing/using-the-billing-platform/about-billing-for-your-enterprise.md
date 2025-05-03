@@ -1,6 +1,6 @@
 ---
 title: About billing for your enterprise
-intro: 'You can view billing information for your enterprise{% ifversion ghec or ghes %} account on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+intro: 'You can view billing information for your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -64,7 +64,7 @@ To check if you have access:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the enterprise account sidebar.
+If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option {% ifversion horizontal-nav %}at the top of the page.{% else %}in the enterprise account sidebar.{% endif %}
 
 {% endif %}
 

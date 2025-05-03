@@ -44,9 +44,8 @@ For repositories that are not eligible for default setup, you can configure adva
 
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
-* {% ifversion fpt %}{% data variables.product.prodname_code_scanning_caps %}{% else %}Advanced setup for {% data variables.product.prodname_code_scanning %}{% endif %} is not already enabled.
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}
-* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}
+* Advanced setup for {% data variables.product.prodname_code_scanning %} is not already enabled.
+{% ifversion default-setup-pre-enablement %}* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}
 {% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
@@ -75,7 +74,7 @@ When a repository uses code stored in a private registry, default setup needs ac
 
 {% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 {% else %}
-Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
+Through the "{% data variables.product.UI_advanced_security %}" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
